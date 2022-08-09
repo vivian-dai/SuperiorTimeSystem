@@ -3,21 +3,22 @@ package com.example.superiortimesystem
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import java.util.*
+import com.example.superiortimesystem.datetime.DateTime
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val timeText: TextView = findViewById(R.id.date_and_time) as TextView;
+        val dateText: TextView = findViewById(R.id.date) as TextView;
+        val timeText: TextView = findViewById(R.id.time) as TextView;
         val updateTime: Thread = object : Thread() {
             override fun run() {
                 try {
                     while (!this.isInterrupted) {
                         sleep(1000)
                         runOnUiThread {
-                            timeText.text = Calendar.getInstance().timeInMillis.toString();
-                            // TODO: display as decimal time and IFC
+                            dateText.text = DateTime().ifcDate();
+                            timeText.text = DateTime().decimalTime();
                         }
                     }
                 } catch (e: InterruptedException) {
