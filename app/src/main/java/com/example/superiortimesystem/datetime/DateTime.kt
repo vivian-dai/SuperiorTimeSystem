@@ -48,10 +48,26 @@ class DateTime {
     }
     fun ifcDate(): String {
         val dayOfYear: Int = cal.get(Calendar.DAY_OF_YEAR);
-        return (when {
-            isLeapYear() && dayOfYear > 170 -> months[(dayOfYear - 1)/daysInMonth] + " " + (dayOfYear - 1)%daysInMonth;
-            isLeapYear() && dayOfYear == 170 -> "June 29";
-            else -> months[dayOfYear/daysInMonth] + " " + dayOfYear%daysInMonth;
-        }) + ", " + cal.get(Calendar.YEAR);
+        var dayOfMonth: Int = 0;
+        var monthNumber: Int = 0;
+        if (isLeapYear() && dayOfYear > 170) {
+            monthNumber = (dayOfYear - 1)/daysInMonth;
+            dayOfMonth = (dayOfYear - 1)%daysInMonth;
+        } else if (isLeapYear() && dayOfYear == 170) {
+            monthNumber = 6;
+            dayOfMonth = 29;
+        } else {
+            monthNumber = dayOfYear/daysInMonth;
+            dayOfMonth = dayOfYear%daysInMonth;
+        }
+        if (dayOfMonth == 0) {
+            monthNumber -= 1;
+            dayOfMonth = daysInMonth;
+        }
+        if (monthNumber > 12) {
+            dayOfMonth += daysInMonth;
+            monthNumber -= 1;
+        }
+        return months[monthNumber] + " " + dayOfMonth + ", " + cal.get(Calendar.YEAR);
     }
 }
