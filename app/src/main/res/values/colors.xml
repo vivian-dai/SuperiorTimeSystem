@@ -5,6 +5,7 @@
     <color name="otherBlue">#0370DD</color>
     <color name="pastelBlue">#8BD8FB</color>
     <color name="grey">#AAA</color>
-    <color name="widgetBkg">@color/grey</color>
+    <color name="widgetBkgStart">@color/grey</color>
+    <color name="widgetBkgEnd">@color/pastelBlue</color>
     <color name="widgetTxt">@color/blue</color>
 </resources>

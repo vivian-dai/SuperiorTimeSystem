@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="widgetBkg">@color/navyBlue</color>
-    <color name="widgetTxt">@color/blue</color>
+    <color name="widgetBkgStart">@color/navyBlue</color>
+    <color name="widgetBkgEnd">@color/blue</color>
+    <color name="widgetTxt">@color/pastelBlue</color>
 </resources>
