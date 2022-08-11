@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#09C"
+    android:background="?android:attr/colorBackground"
     android:padding="@dimen/widget_margin">
 
     <TextView
@@ -11,10 +11,8 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_margin="8dp"
-        android:background="#09C"
-        android:contentDescription="@string/appwidget_text"
-        android:text="@string/appwidget_text"
-        android:textColor="#ffffff"
+        android:background="?android:attr/colorBackground"
+        android:textColor="@color/blue"
         android:textSize="24sp"
         android:textStyle="bold|italic" />
 
