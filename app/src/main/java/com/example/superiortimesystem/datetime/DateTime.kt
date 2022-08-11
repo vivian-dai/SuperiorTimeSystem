@@ -1,7 +1,6 @@
 package com.example.superiortimesystem.datetime
 
 import java.util.Calendar;
-import java.text.DecimalFormat;
 
 class DateTime {
     private val cal: Calendar = Calendar.getInstance();
@@ -44,7 +43,7 @@ class DateTime {
     fun decimalTime(): String {
         val secondsPassed: Int = cal.get(Calendar.HOUR_OF_DAY)*3600 + cal.get(Calendar.MINUTE)*60 + cal.get(Calendar.SECOND);
         val percentOfDay: Double = (secondsPassed.toDouble())/(secondsInDay.toDouble());
-        return (DecimalFormat("#.##").format((percentOfDay*10))).toString();
+        return ((percentOfDay*10).toString()).subSequence(0, 4).toString();
     }
     fun ifcDate(): String {
         val dayOfYear: Int = cal.get(Calendar.DAY_OF_YEAR);

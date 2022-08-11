@@ -2,4 +2,5 @@
     <string name="app_name">SuperiorTimeSystem</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
+    <string name="dt_description">A widget for decimal time</string>
 </resources>

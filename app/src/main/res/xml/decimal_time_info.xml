@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/dt_description"
     android:initialKeyguardLayout="@layout/decimal_time"
     android:initialLayout="@layout/decimal_time"
     android:minWidth="110dp"
