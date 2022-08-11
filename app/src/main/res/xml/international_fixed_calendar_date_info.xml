@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-    
-    android:description="@string/dt_description"
-    android:initialKeyguardLayout="@layout/decimal_time"
-    android:initialLayout="@layout/decimal_time"
-    android:minWidth="110dp"
+    android:description="@string/ifc_description"
+    android:initialKeyguardLayout="@layout/international_fixed_calendar_date"
+    android:initialLayout="@layout/international_fixed_calendar_date"
+    android:minWidth="165dp"
     android:minHeight="40dp"
     android:previewImage="@drawable/example_appwidget_preview"
     android:resizeMode="horizontal|vertical"
-    android:updatePeriodMillis="120000"
+    android:updatePeriodMillis="86400000"
     android:widgetCategory="home_screen"></appwidget-provider>

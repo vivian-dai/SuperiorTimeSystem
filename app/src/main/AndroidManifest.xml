@@ -9,6 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <receiver android:name=".InternationalFixedCalendarDate">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/international_fixed_calendar_date_info" />
+        </receiver>
         <receiver android:name=".DecimalTime">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

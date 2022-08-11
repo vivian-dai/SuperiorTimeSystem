@@ -3,4 +3,5 @@
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
     <string name="dt_description">A widget for decimal time</string>
+    <string name="ifc_description">A widget to show the date in international fixed calendar format</string>
 </resources>
