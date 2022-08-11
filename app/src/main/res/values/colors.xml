@@ -2,6 +2,9 @@
 <resources>
     <color name="navyBlue">#180051</color>
     <color name="blue">#5353F8</color>
+    <color name="otherBlue">#0370DD</color>
     <color name="pastelBlue">#8BD8FB</color>
     <color name="grey">#AAA</color>
+    <color name="widgetBkg">@color/grey</color>
+    <color name="widgetTxt">@color/blue</color>
 </resources>
