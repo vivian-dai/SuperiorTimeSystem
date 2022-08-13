@@ -6,7 +6,7 @@
     android:initialLayout="@layout/decimal_time"
     android:minWidth="110dp"
     android:minHeight="40dp"
-    android:previewImage="@drawable/example_appwidget_preview"
+    android:previewImage="@drawable/dt"
     android:resizeMode="horizontal|vertical"
     android:updatePeriodMillis="120000"
     android:widgetCategory="home_screen"></appwidget-provider>
