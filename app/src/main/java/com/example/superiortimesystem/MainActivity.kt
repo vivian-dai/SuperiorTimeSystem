@@ -1,17 +1,27 @@
 package com.example.superiortimesystem
 
-import android.content.res.Configuration
+import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.superiortimesystem.datetime.DateTime
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        val dateText: TextView = findViewById(R.id.date) as TextView;
-        val timeText: TextView = findViewById(R.id.time) as TextView;
+
+        val dtReceiver = DecimalTime();
+        registerReceiver(dtReceiver, IntentFilter(Intent.ACTION_TIME_TICK));
+
+        val ifcReceiver = InternationalFixedCalendarDate();
+        registerReceiver(ifcReceiver, IntentFilter(Intent.ACTION_TIME_TICK));
+
+        val dateText: TextView = findViewById<TextView>(R.id.date);
+        val timeText: TextView = findViewById<TextView>(R.id.time);
         val updateTime: Thread = object : Thread() {
             override fun run() {
                 try {
@@ -20,6 +30,7 @@ class MainActivity : AppCompatActivity() {
                         runOnUiThread {
                             dateText.text = DateTime().ifcDate();
                             timeText.text = DateTime().decimalTime();
+
                         }
                     }
                 } catch (e: InterruptedException) {
@@ -29,5 +40,6 @@ class MainActivity : AppCompatActivity() {
 
         updateTime.start()
     }
+
 
 }
