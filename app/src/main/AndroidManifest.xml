@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.superiortimesystem">
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -9,6 +10,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <receiver
+            android:enabled="true"
+            android:name=".DateTimeReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.DATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
         <receiver
             android:name=".InternationalFixedCalendarDate"
             android:exported="true">
@@ -20,6 +31,7 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/international_fixed_calendar_date_info" />
         </receiver>
+
         <receiver
             android:name=".DecimalTime"
             android:exported="true">
