@@ -17,6 +17,9 @@ class MainActivity : AppCompatActivity() {
         val dtReceiver = DecimalTime();
         registerReceiver(dtReceiver, IntentFilter(Intent.ACTION_TIME_TICK));
 
+        val ifcReceiver = InternationalFixedCalendarDate();
+        registerReceiver(ifcReceiver, IntentFilter(Intent.ACTION_TIME_TICK));
+
         val dateText: TextView = findViewById<TextView>(R.id.date);
         val timeText: TextView = findViewById<TextView>(R.id.time);
         val updateTime: Thread = object : Thread() {

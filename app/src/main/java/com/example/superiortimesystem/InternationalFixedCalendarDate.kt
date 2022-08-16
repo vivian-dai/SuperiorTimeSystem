@@ -35,6 +35,18 @@ class InternationalFixedCalendarDate : AppWidgetProvider() {
         // Enter relevant functionality for when the last widget is disabled
     }
 
+    override fun onReceive(context: Context?, intent: Intent?) {
+        super.onReceive(context, intent)
+        val action: String? = intent?.action
+        if((action != null) && (action == Intent.ACTION_TIME_TICK) && (context != null)) {
+            val appWidgetManager = AppWidgetManager.getInstance(context)
+            val ids = appWidgetManager.getAppWidgetIds(ComponentName(context, InternationalFixedCalendarDate::class.java))
+            for (id in ids) {
+                updateIFCAppWidget(context, appWidgetManager, id)
+            }
+        }
+    }
+
 }
 
 internal fun updateIFCAppWidget(
