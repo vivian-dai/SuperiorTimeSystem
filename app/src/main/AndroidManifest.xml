@@ -12,15 +12,6 @@
         android:theme="@style/AppTheme">
 
         <receiver
-            android:enabled="true"
-            android:name=".DateTimeReceiver"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.DATE_CHANGED" />
-            </intent-filter>
-        </receiver>
-
-        <receiver
             android:name=".InternationalFixedCalendarDate"
             android:exported="true">
             <intent-filter>
