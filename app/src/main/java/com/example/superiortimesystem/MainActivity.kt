@@ -7,8 +7,21 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.superiortimesystem.datetime.DateTime
 
-
+/**
+ * Main activity
+ *
+ * Where all the foreground tasks of the app runs
+ * Inherits from `AppCompatActivity`
+ */
 class MainActivity : AppCompatActivity() {
+    /**
+     * Initiates things to do upon the app opening
+     * Sets up the widgets' `BroadcastReceiver`s
+     * Runs a thread that updates the date and time every second (1000 milliseconds)
+     *
+     * @param savedInstanceState the last state of the app
+     * @throws InterruptedException if the thread is interrupted
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -36,7 +49,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
         updateTime.start()
     }
 

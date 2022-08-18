@@ -8,11 +8,18 @@ import android.content.Intent
 import android.widget.RemoteViews
 import com.example.superiortimesystem.datetime.DateTime
 
-
 /**
- * Implementation of App Widget functionality.
+ * Widget to display the time in decimal time
+ * Inherited from `AppWidgetProvider`
  */
 class DecimalTime : AppWidgetProvider() {
+    /**
+     * Updates all of the widgets
+     *
+     * @param context the state of the widget
+     * @param appWidgetManager manages the app's widgets (states, updating, etc.)
+     * @param appWidgetIds array of the IDs of all of the widgets on screen
+     */
     override fun onUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
@@ -33,19 +40,34 @@ class DecimalTime : AppWidgetProvider() {
         // Enter relevant functionality for when the last widget is disabled
     }
 
+    /**
+     * What to do upon receiving a broadcast message
+     *
+     * The widget is to be updated every time the minute changes
+     * which is received on the `ACTION_TIME_TICK` `Intent`
+     *
+     * @param context the state
+     * @param intent the specific broadcast message sent
+     */
     override fun onReceive(context: Context?, intent: Intent?) {
         super.onReceive(context, intent)
         val action: String? = intent?.action
         if((action != null) && (action == Intent.ACTION_TIME_TICK) && (context != null)) {
             val appWidgetManager = AppWidgetManager.getInstance(context)
             val ids = appWidgetManager.getAppWidgetIds(ComponentName(context, DecimalTime::class.java))
-            for (id in ids) {
-                updateDecimalTimeAppWidget(context, appWidgetManager, id)
-            }
+            onUpdate(context, appWidgetManager, ids)
         }
     }
 }
 
+/**
+ * Updates an individual app widget by pulling the
+ * current time in decimal time and updating the view
+ *
+ * @param context the state of the widget
+ * @param appWidgetManager the component responsible for updating the widget
+ * @param appWidgetId the ID of the specific widget to update
+ */
 internal fun updateDecimalTimeAppWidget(
     context: Context,
     appWidgetManager: AppWidgetManager,
