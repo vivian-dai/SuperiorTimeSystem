@@ -1,14 +1,11 @@
 package com.example.superiortimesystem
 
-import android.app.AlarmManager
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.os.Parcel
 import android.widget.RemoteViews
-import android.widget.Toast
 import com.example.superiortimesystem.datetime.DateTime
 
 /**
